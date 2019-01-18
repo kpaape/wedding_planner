@@ -1,0 +1,260 @@
+* {
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Make sure the :root is in the html file if you want there to be user customization */
+/*
+orange scheme
+    --primary-color: rgb(230, 100, 0);
+    --secondary-color: rgb(230, 200, 60);
+blue scheme
+    --primary-color: rgb(00, 100, 230);
+    --secondary-color: rgb(60, 200, 230);
+green
+    --primary-color: rgb(00, 230, 100);
+    --secondary-color: rgb(60, 230, 200);
+*/
+:root {
+    --primary-color: rgb(100, 20, 50);
+    --secondary-color: rgb(200, 150, 150);
+    --tertiary-color: rgb(60, 60, 60);
+    --bg-primary: rgb(230, 230, 230);
+    --bg-secondary: rgb(255, 255, 255);
+	--grad-primary: linear-gradient(rgb(80, 80, 80), rgb(30, 30, 30));
+    --grad-secodary: linear-gradient(rgb(140, 140, 140), rgb(60, 60, 60));
+	--grad-angular: repeating-linear-gradient(-45deg, rgb(60,60,60), rgb(60,60,60) 5px, rgb(0,0,0) 5px, rgb(0,0,0) 10px);
+	--grad-angular-2: repeating-linear-gradient(45deg, rgba(60,60,60,0.5), rgba(60,60,60,0.5) 5px, rgba(0,0,0,0.5) 5px, rgba(0,0,0,0.5) 10px);
+    --grad-radial: repeating-radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+    --fg-color: black;
+    --container-width: 800px;
+    --pad-lg: 20px;
+    --pad-md: 10px;
+    --pad-sm: 5px;
+}
+
+body {
+    width: 100%;
+    margin: 0;
+    background-color: var(--bg-primary);
+    color: var(--fg-color);
+}
+
+main, footer {
+    padding: var(--pad-lg);
+}
+
+header {
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    margin: 0;
+    height: 200px;
+    font-weight: bold;
+    position: relative;
+}
+
+header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+}
+
+header h1 {
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+    color: white;
+    text-shadow: 0 3px 5px black;
+}
+
+nav {
+    background-color: var(--primary-color);
+    margin: 0;
+    position: sticky;
+    top: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    margin: 0px;
+    padding: var(--pad-md) var(--pad-lg);
+    border-radius: 0;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+nav ul li a:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+main {
+    text-align: justify;
+    padding-bottom: 80px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0px;
+    width: calc(var(--container-width) - var(--pad-lg) * 2);
+    width: calc(100% - var(--pad-lg) * 2);
+    background-color: var(--secondary-color);
+    text-align: center;
+}
+
+button, .button {
+    display: inline-block;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    color: white;
+    padding: var(--pad-sm) var(--pad-md);
+    margin: 5px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+button:hover, .button:hover {
+    background-color: var(--secondary-color);
+}
+
+a {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--fg-color);
+}
+
+a:hover {
+    color: var(--primary-color);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid var(--tertiary-color);
+    padding: var(--pad-sm);
+}
+
+thead th {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+tbody tr {
+    color: black;
+    background-color: white;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: var(--secondary-color);
+}
+
+form {
+    width: 50%;
+    padding: var(--pad-md);
+    margin: 0 auto;
+    text-align: left;
+}
+
+form label {
+    display: inline-block;
+    width: 100%;
+}
+
+form input, form textarea {
+    width: calc(100% - var(--pad-sm) * 2);
+    border: 2px solid var(--secondary-color);
+    padding: var(--pad-sm);
+    margin: 5px 0;
+}
+
+form textarea {
+    height: 200px;
+    resize: none;
+}
+
+form select {
+    width: 50%;
+    border: 2px solid var(--secondary-color);
+    padding: var(--pad-sm);
+    margin: 5px 0;
+}
+
+form button[type="submit"] {
+    display: block;
+}
+
+#container {
+    position: relative;
+    max-width: var(--container-width);
+    height: 100%;
+    min-height: 100vh;
+    margin: 0px auto;
+    background-color: var(--bg-secondary);
+}
+
+#error_messages {
+    list-style-type: none;
+    margin: 0;
+    color: red;
+}
+
+.form_errors {
+    list-style-type: none;
+    margin: 0;
+    color: red;
+}
+
+/* dropdown setup ≡ */
+
+.dropdown {
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--secondary-color);
+    width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* response */
+
+@media only screen and (max-width: 500px){
+    header {
+        font-size: 70%;
+        height: 150px;
+    }
+    form {
+        width: 75%;
+    }
+}
+
+@media only screen and (min-width: 501px){
+    form {
+        width: 75%;
+    }
+}
+
+@media only screen and (min-width: 810px){
+    form {
+        width: 50%;
+    }
+}

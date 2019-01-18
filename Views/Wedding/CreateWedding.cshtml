@@ -1,0 +1,21 @@
+@model Wedding
+<h2>New Wedding</h2>
+<form asp-action="AddWedding" asp-controller="Wedding" method="POST">
+    <span asp-validation-for="wedder_one" class="form_errors"></span>
+    <label asp-for="wedder_one">Wedder One:</label>
+    <input asp-for="wedder_one">
+    
+    <span asp-validation-for="wedder_two" class="form_errors"></span>
+    <label asp-for="wedder_two">Wedder Two:</label>
+    <input asp-for="wedder_two">
+    
+    <span asp-validation-for="date" class="form_errors"></span>
+    <label asp-for="date">Date:</label>
+    <input asp-for="date" type="date">
+    
+    <span asp-validation-for="address" class="form_errors"></span>
+    <label asp-for="address">Ceremony Address:</label>
+    <input asp-for="address">
+
+    <button type="submit">Submit</button>
+</form>

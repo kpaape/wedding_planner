@@ -1,0 +1,38 @@
+@model IEnumerable<Wedding>
+<a href="/CreateWedding" class="button">New Wedding</a>
+<table>
+    <thead>
+        <tr>
+            <th>Wedding</th>
+            <th>Date</th>
+            <th>Guest Count</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach(var wedding in Model)
+    {
+        <tr>
+            <td>@wedding.wedder_one & @wedding.wedder_two</td>
+            <td>@wedding.date</td>
+            <td>@wedding.responses.Count()</td>
+            <td>
+            @{
+                if(wedding.user_id == ViewBag.UserId)
+                {
+                    <a href="">DELETE</a>
+                }
+                else if(wedding.responses.Any(r => r.user_id == ViewBag.UserId))
+                {
+                    <a href="RemoveRSVP/{wedding.wedding_id}">UN-RSVP</a>
+                }
+                else
+                {
+                    <a href="AddRSVP/{wedding.wedding_id}">RSVP</a>
+                }
+            }
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
